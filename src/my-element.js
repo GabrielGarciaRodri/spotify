@@ -11,68 +11,87 @@ export class MyElement extends LitElement {
     this.description = "1000 Gecks"
     this.leftArrow= "/src/assets/leftArrow.png"
     this.playButton = "/src/assets/play.svg"
-    this.leftArrow= "/src/assets/leftArrow.png"
+    this.rightArrow= "/src/assets/rightArrow.png"
   } 
 
   static styles =css`
+
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .container {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-areas:
-      "imagen"
-      "description"
-      "buttons"
-      ;
-      width: 250px;
-      height: 350px;
-      background-color: blue;
-      border-radius: 10px;
-    }
-
-    .container-image{
-      height: 100%;
-      grid-area: imagen;
-      background: red;
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container-image img {
-      width: 200px;
-      height: 200px;
-      border-radius: 10px;
-    }
-
-    .artist_description{
-      background: green;
-      height: 50%;
-      grid-area: description;
-      color: #fff;
-    }
-
-    .artist_description h2 {
-      font-size: 20px;
-    }
-
-    .artist_description h3 {
-      font-size: 15px;
-    }
-
-    .text_music{
       display: flex;
       align-items: center;
       flex-direction: column;
+      justify-content: center;
+      width: 250px;
+      height: 350px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(/src/assets/image20.svg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .atras img{
+      width: 100%;
+      height: 100%;
+    }
+
+    .atras{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 40px;
+      left: 10px;
+      z-index: 2;
+    }
+
+    .main_container{
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main_container .bck_img{
+      display: flex;
+    }
+
+    .bck_img img{
+      width: 200px;
+      max-height: 250px;
     }
 
     .interactive_buttons{
-      grid-area: buttons;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
 
     button{
       border-radius: 100px;
@@ -80,39 +99,43 @@ export class MyElement extends LitElement {
       background-color: transparent;
     }
 
-    .leftButton{
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
+    .button_play{
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      margin: 10px;
+      border-radius: 100%;
+      background-color: green;
+      font-size: 50px;
+      width: 40px;
+      height: 40px;
     }
 
-    .rightButton{
-      width: 20px;
-      height: 20px;
-      margin-left: 10px;
-    }
+    .button_play 
 
-    .playButton{
-      width: 60px;
-      height: 60px;
-    }
+    
+
+    
   `
   render(){
     return html`
       <div class="container">
-        <div class="container-image"> 
+
+        <div class="atras"><img src="/src/assets/atras.svg"></div>
+        
+        <div class="main_container"> 
+          <div class="bck_img">
           <img src="${this.image}">
-        </div>
-        <div class= "song_title">
+          </div>
           <h2>${this.title}</h2>
-        </div>
-        <div class="artist_description">
           <h3>${this.description}</h3>
-        </div>  
+        </div>
+
+
         <div class= "interactive_buttons">
           <button><img src="${this.leftArrow}"></button> 
-          <button><box-icon name='play'></box-icon></button> 
-          <button></button>
+          <button class= "button_play"><box-icon name='play'></box-icon></button> 
+          <button><img src="${this.rightArrow}"></button>
         </div>
       </div>
     `;
