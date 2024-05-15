@@ -28,8 +28,8 @@ export class MyElement extends LitElement {
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      width: 250px;
-      height: 350px;
+      width: 260px;
+      height: 330px;
       border-radius: 20px;
       position: relative;
       overflow: hidden;
@@ -38,14 +38,12 @@ export class MyElement extends LitElement {
     .container::before{
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      width: 120%;
+      height: 130%;
       background-image: url(/src/assets/image20.svg);
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
+      background-repeat: repeat;
       filter: blur(10px);
       z-index: -1;
     }
@@ -105,16 +103,16 @@ export class MyElement extends LitElement {
       align-items: center;  
       margin: 10px;
       border-radius: 100%;
-      background-color: green;
+      background-color: #27AE60;
       font-size: 50px;
       width: 40px;
       height: 40px;
     }
-
-    .button_play 
-
     
-
+    box-icon {
+      width: 35px;
+      height: 35px;
+    }
     
   `
   render(){
@@ -134,7 +132,7 @@ export class MyElement extends LitElement {
 
         <div class= "interactive_buttons">
           <button><img src="${this.leftArrow}"></button> 
-          <button class= "button_play"><box-icon name='play'></box-icon></button> 
+          <button class= "button_play"><box-icon name='play' color='#ffffff'></box-icon></button> 
           <button><img src="${this.rightArrow}"></button>
         </div>
       </div>
