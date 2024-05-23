@@ -7,6 +7,13 @@ customElements.define('my-left-bar', MyLeftBar);
 import { myTrack } from "./my-track";
 customElements.define('my-track', myTrack);
 
+import { Reproductor } from "./reproductor";
+customElements.define('my-reproductor', Reproductor);
+
+import { TrackList } from "./my-trackList";
+customElements.define('my-trcklist', TrackList);
+
+
 class myGrid extends LitElement {
     static styles = css`
     
@@ -138,6 +145,7 @@ class myGrid extends LitElement {
         </main>
         `
     }
+
 }
 
 customElements.define("my-grid" , myGrid)
