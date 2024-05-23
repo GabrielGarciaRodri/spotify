@@ -1,8 +1,11 @@
 import { LitElement, html, css } from "lit";
 
 // Parte menu ajustada 
-import { MyLeftBar } from "./my-left-bar";
+import { MyLeftBar } from "./my-leftBar";
 customElements.define('my-left-bar', MyLeftBar);
+
+import { myTrack } from "./my-track";
+customElements.define('my-track', myTrack);
 
 class myGrid extends LitElement {
     static styles = css`
