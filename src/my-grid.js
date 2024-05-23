@@ -1,5 +1,9 @@
 import { LitElement, html, css } from "lit";
 
+// Parte menu ajustada 
+import { MyLeftBar } from "./my-left-bar";
+customElements.define('my-left-bar', MyLeftBar);
+
 class myGrid extends LitElement {
     static styles = css`
     
