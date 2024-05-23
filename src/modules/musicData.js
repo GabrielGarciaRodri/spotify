@@ -6,10 +6,10 @@ const options = {
             'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
         }
     };
-let result
+
 try {
     const response = await fetch(url, options);
-    result = await response.json()
+    let result = await response.json()
 } catch (error) {
     console.error(error);
 }
